@@ -16,7 +16,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Name="Module1" Margin="10" FontSize="20" Height="200" Click="Module1_Click">Moduł 1</Button>
-                <Button Name="Module2" Grid.Column="1" Margin="10" FontSize="20" Height="200">Moduł 2</Button>
+                <Button Name="Module2" Grid.Column="1" Margin="10" FontSize="20" Height="200" Click="Module2_Click">Moduł 2</Button>
             </Grid>
         </GroupBox>
     </Grid>

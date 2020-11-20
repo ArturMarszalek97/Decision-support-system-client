@@ -135,9 +135,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\Module_2\KNNMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Module_2\LeaveOneOutMethod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Module_2\LeaveOneOutMethodDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Module_2\Module2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\HistogramModel.cs" />
+    <Compile Include="Models\LeaveOneOutDataModel.cs" />
     <Compile Include="Models\SerieModel.cs" />
     <Compile Include="Modules\Module_1\DataOperations\ChangeRangeOfValues.xaml.cs">
       <DependentUpon>ChangeRangeOfValues.xaml</DependentUpon>
@@ -177,6 +194,18 @@
     </Compile>
     <Compile Include="Modules\Module_1\Visualizations\Visualizations.xaml.cs">
       <DependentUpon>Visualizations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_2\KNNMethod.xaml.cs">
+      <DependentUpon>KNNMethod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_2\LeaveOneOutMethod.xaml.cs">
+      <DependentUpon>LeaveOneOutMethod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_2\LeaveOneOutMethodDetails.xaml.cs">
+      <DependentUpon>LeaveOneOutMethodDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_2\Module2.xaml.cs">
+      <DependentUpon>Module2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
