@@ -1,0 +1,45 @@
+﻿<Window x:Class="DecisionSupportSystemClient.Modules.Module_1.DataOperations.ChangeTextDataToNumeric"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DecisionSupportSystemClient.Modules.Module_1.DataOperations"
+        mc:Ignorable="d"
+        Title="ChangeTextDataToNumeric" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Label VerticalAlignment="Center" HorizontalAlignment="Right">Wybierz kolumnę:</Label>
+        <ComboBox Name="columnsName" Grid.Column="1" VerticalAlignment="Center">
+
+        </ComboBox>
+
+        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Nazwa nowej kolumny:</Label>
+        <TextBox Name="newColumnName" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+
+        </TextBox>
+
+        <GroupBox Header="Metoda zamiany" Margin="5" Grid.Row="2" Grid.ColumnSpan="2" Height="auto" Width="auto" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton x:Name="orderOfOccurance" IsChecked="True">
+                    Kolejność wystąpienia
+                </RadioButton>
+                <RadioButton x:Name="alphabeticaly" Margin="50,0,0,0">
+                    Alfabetycznie
+                </RadioButton>
+            </StackPanel>
+        </GroupBox>
+
+        <Button Name="Ok" Grid.ColumnSpan="2" Grid.Row="3" Margin="5" Click="Ok_Click">zatwierdź</Button>
+    </Grid>
+</Window>

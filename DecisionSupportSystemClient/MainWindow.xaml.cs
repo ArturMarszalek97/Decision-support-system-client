@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DecisionSupportSystemClient.Helpers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DecisionSupportSystemClient
 {
@@ -23,6 +11,15 @@ namespace DecisionSupportSystemClient
         public MainWindow()
         {
             InitializeComponent();
+            ClientHelper.InitHttpClient();
+        }
+
+        private void Module1_Click(object sender, RoutedEventArgs e)
+        {
+            var module1Window = new Module1();
+            module1Window.Show();
+
+            this.Close();
         }
     }
 }

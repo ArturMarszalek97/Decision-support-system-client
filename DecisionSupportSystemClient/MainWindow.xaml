@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DecisionSupportSystemClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
         <GroupBox Header="Wybierz moduł" FontWeight="Bold" FontSize="30" Style="{DynamicResource MaterialDesignGroupBox}" materialDesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="10">
             <Grid>
@@ -15,7 +15,8 @@
                     <ColumnDefinition Width="5*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Name="Module1"></Button>
+                <Button Name="Module1" Margin="10" FontSize="20" Height="200" Click="Module1_Click">Moduł 1</Button>
+                <Button Name="Module2" Grid.Column="1" Margin="10" FontSize="20" Height="200">Moduł 2</Button>
             </Grid>
         </GroupBox>
     </Grid>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="DecisionSupportSystemClient.Modules.Module_1.DataOperations.DataOperations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DecisionSupportSystemClient.Modules.Module_1.DataOperations"
+        mc:Ignorable="d"
+        Title="DataOperations" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid Name="dataGrid" HorizontalAlignment="Left" Margin="10" SelectionMode="Single" IsReadOnly="False" SelectionUnit="Cell" AutoGenerateColumns="False" VerticalAlignment="Top">
+
+        </DataGrid>
+
+        <StackPanel Grid.Column="1">
+            <Button Name="Return"  Margin="5" VerticalAlignment="Top" Click="Return_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="ArrowLeftBoldCircleOutline" VerticalAlignment="Center" Height="24" Width="19" />
+                    <TextBlock Text="powrót" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Height="21"/>
+                </StackPanel>
+            </Button>
+            <Button Name="LoadFile" Margin="5" Click="LoadFile_Click">Wczytaj plik</Button>
+            <Button Name="Normalization" Margin="5" Click="Normalization_Click">Normalizacja</Button>
+            <Button Name="Discretization" Margin="5" Click="Discretization_Click">Dyskretyzacja</Button>
+            <Button x:Name="ChangeTextDataToNumeric" Margin="5" Height="73" Click="ChangeTextDataToNumeric_Click" Content="Dane tekstowe &#xD;&#xA;na numeryczne"/>
+            <Button x:Name="ChangeRangeOfValues" Margin="5" Content="Zmiana przedziału wartości" Height="54" Click="ChangeRangeOfValues_Click"/>
+            <Button x:Name="MinMaxValue" Margin="5" Content="% min/max wartości" Height="54" Click="MinMaxValue_Click"/>
+            <Button x:Name="WorkingFile" Margin="5" Content="Bieżący plik" Height="54" Click="WorkingFile_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
