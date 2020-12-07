@@ -148,7 +148,12 @@ namespace DecisionSupportSystemClient.Modules.Module_3
 
         private void Grouping_Click(object sender, RoutedEventArgs e)
         {
+            var grouping = new Grouping();
 
+            if (grouping.ShowDialog() == true)
+            {
+                WorkingFile_Click(new object(), new RoutedEventArgs());
+            }
         }
 
         private async void WorkingFile_Click(object sender, RoutedEventArgs e)

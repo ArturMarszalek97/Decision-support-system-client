@@ -1,6 +1,9 @@
-﻿using System;
+﻿using DecisionSupportSystemClient.Helpers;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,12 +22,15 @@ namespace DecisionSupportSystemClient.Modules.Module_3
     /// </summary>
     public partial class Grouping : Window
     {
+        HttpClient client;
+
         public Grouping()
         {
             InitializeComponent();
+            this.client = ClientHelper.GetClient();
         }
 
-        private async void Ok_Click(object sender, RoutedEventArgs e)
+        private void Ok_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -49,22 +55,19 @@ namespace DecisionSupportSystemClient.Modules.Module_3
                         break;
                 }
 
-                //var json = JsonConvert.SerializeObject(values);
+                var json = JsonConvert.SerializeObject(new object());
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var path = $"http://localhost:8080/classification?neighbors=";
-                path += $"{numberOfNb}&method={metricNumber}";
+                var path = $"http://localhost:8080/grouping?k=";
+                path += $"{this.numberOfclass.Text}&method={metricNumber}&columnName={this.columnName.Text}";
 
                 HttpResponseMessage responseMessage = client.PostAsync(path, content).Result;
                 string responseBody = responseMessage.Content.ReadAsStringAsync().Result;
-
-                MessageBox.Show($"Obiekt należy do klasy {responseBody}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 DialogResult = true;
             }
             catch (Exception)
             {
 
-                throw;
             }
         }
     }
