@@ -151,6 +151,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\Module_3\Grouping.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\Module_3\Module3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\HistogramModel.cs" />
@@ -206,6 +214,12 @@
     </Compile>
     <Compile Include="Modules\Module_2\Module2.xaml.cs">
       <DependentUpon>Module2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_3\Grouping.xaml.cs">
+      <DependentUpon>Grouping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Module_3\Module3.xaml.cs">
+      <DependentUpon>Module3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
