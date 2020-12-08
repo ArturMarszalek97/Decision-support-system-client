@@ -26,7 +26,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="Return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="114" Height="37">
+        <Button Name="Return" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="114" Height="37" Click="Return_Click">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <materialDesign:PackIcon Kind="ArrowLeftBoldCircleOutline" VerticalAlignment="Center" Height="24" Width="19" />
                 <TextBlock Text="powrót" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Height="21"/>

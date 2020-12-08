@@ -29,5 +29,13 @@ namespace DecisionSupportSystemClient
 
             this.Close();
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            this.Close();
+        }
     }
 }

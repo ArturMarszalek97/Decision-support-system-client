@@ -22,7 +22,7 @@ namespace DecisionSupportSystemClient.Modules.Module_1.Visualizations
     /// </summary>
     public partial class DrawChart2D : Window
     {
-        public List<double[]> data;
+        public List<List<double>> data;
 
         //public DrawChart2D()
         //{
@@ -41,54 +41,104 @@ namespace DecisionSupportSystemClient.Modules.Module_1.Visualizations
         //    }
         //}
 
-        public DrawChart2D(List<double[]> data, List<string> columns)
+        public DrawChart2D(List<List<double>> data, List<string> columns)
         {
             InitializeComponent();
             this.data = data;
 
-            ObservableCollection<SerieModel> test = new ObservableCollection<SerieModel>();
-
-            if (data.Count == 2)
+            if (data.Count <= 2)
             {
-                SerieModel serie1 = new SerieModel();
-                serie1.column = columns[1];
+                List<Point> points = new List<Point>();
 
-                for (int i = 0; i < data[0].Length; i++)
+                for (int i = 0; i < data[0].Count; i++)
                 {
-                    serie1.AddPoint(data[0][i], data[1][i]);
+                    points.Add(new Point { X = data[0][i], Y = data[1][i] });
                 }
 
-                test.Add(serie1);
-            }
-            else if (data.Count == 3)
-            {
-                SerieModel serie1 = new SerieModel();
-                SerieModel serie2 = new SerieModel();
-
-                serie1.column = columns[1];
-                serie2.column = columns[2];
-
-                for (int i = 0; i < data[0].Length; i++)
-                {
-                    serie1.AddPoint(data[0][i], data[1][i]);
-                    serie2.AddPoint(data[0][i], data[2][i]);
-                }
-
-                test.Add(serie1);
-                test.Add(serie2);
-            }
-
-            ScatterSeries series;
-
-            for (int i = 0; i < test.Count; i++)
-            {
-                series = new ScatterSeries();
+                ScatterSeries series = new ScatterSeries();
+                series.Foreground = Brushes.Red;
                 series.DependentValuePath = "Y";
                 series.IndependentValuePath = "X";
-                series.Title = test[i].column;
-                series.ItemsSource = test[i];
+                series.Title = columns[0];
+                series.ItemsSource = points;
                 chart1.Series.Add(series);
             }
+            else
+            {
+                for (int i = 0; i < data.Count; i+=2)
+                {
+                    List<Point> points = new List<Point>();
+
+                    for (int j = 0; j < data[i].Count; j++)
+                    {
+                        points.Add(new Point { X = data[i][j], Y = data[i + 1][j] });
+                    }
+
+                    ScatterSeries series = new ScatterSeries();
+                    series.DependentValuePath = "Y";
+                    series.IndependentValuePath = "X";
+                    //series.Title = columns[i];
+                    series.ItemsSource = points;
+                    
+                    chart1.Series.Add(series);
+                    
+                }
+            }
+
+            
+
+            //ScatterSeries series = new ScatterSeries();
+            //series.DependentValuePath = "Y";
+            //series.IndependentValuePath = "X";
+            ////series.Title = columnName;
+            ////series.ItemsSource = points;
+            //chart1.Series.Add(series);
+
+            //ObservableCollection<SerieModel> test = new ObservableCollection<SerieModel>();
+
+            //if (data.Count == 2)
+            //{
+            //    SerieModel serie1 = new SerieModel();
+            //    serie1.column = columns[1];
+
+            //    for (int i = 0; i < data[0].Length; i++)
+            //    {
+            //        serie1.AddPoint(data[0][i], data[1][i]);
+
+                    
+            //    }
+
+            //    test.Add(serie1);
+            //}
+            //else if (data.Count == 3)
+            //{
+            //    SerieModel serie1 = new SerieModel();
+            //    SerieModel serie2 = new SerieModel();
+
+            //    serie1.column = columns[1];
+            //    serie2.column = columns[2];
+
+            //    for (int i = 0; i < data[0].Length; i++)
+            //    {
+            //        serie1.AddPoint(data[0][i], data[1][i]);
+            //        serie2.AddPoint(data[0][i], data[2][i]);
+            //    }
+
+            //    test.Add(serie1);
+            //    test.Add(serie2);
+            //}
+
+            //ScatterSeries series;
+
+            //for (int i = 0; i < test.Count; i++)
+            //{
+            //    series = new ScatterSeries();
+            //    series.DependentValuePath = "Y";
+            //    series.IndependentValuePath = "X";
+            //    series.Title = test[i].column;
+            //    series.ItemsSource = test[i];
+            //    chart1.Series.Add(series);
+            //}
         }
     }
 

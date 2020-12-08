@@ -168,7 +168,9 @@ namespace DecisionSupportSystemClient.Modules.Module_1.Visualizations
                 HttpResponseMessage response = await client.GetAsync(path);
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                var data = GetRawData(responseBody);
+                //var data = GetRawData(responseBody);
+
+                var data = JsonConvert.DeserializeObject<List<List<double>>>(responseBody);
 
                 DrawChart2D drawChart2D = new DrawChart2D(data, choosenColumns);
                 drawChart2D.Show();

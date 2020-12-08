@@ -17,6 +17,7 @@ namespace DecisionSupportSystemClient.Helpers
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.Timeout = TimeSpan.FromDays(1);
         }
 
         public static HttpClient GetClient()
